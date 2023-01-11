@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PokeDesk.View.DetailsPokemon"
+             xmlns:sharnado="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame">
+    <ContentPage.Content>
+        <Grid>
+
+
+            <Grid.Background>
+
+                <LinearGradientBrush StartPoint="1,0">
+                    <GradientStop Color="{Binding pokemonRecibe.ColorFondo}" Offset="0.1"/>
+                    <GradientStop Color="{Binding pokemonRecibe.ColorPoder}" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackLayout>
+                <Image Source="back" WidthRequest="50" Margin="5" HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding btnBack}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label  Text="{Binding pokemonRecibe.NPokemon}" Margin="5" FontSize="40" TextColor="white" FontAttributes="Bold"/>
+                <Image Source="{Binding pokemonRecibe.Icono}" WidthRequest="200"/>
+                <Label Text="{Binding pokemonRecibe.Nombre}" Margin="5" FontSize="40" TextColor="white" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+                <Grid RowDefinitions="auto, auto" Margin="10">
+                    <sharnado:MaterialFrame CornerRadius="15" MaterialBlurStyle="Light" MaterialTheme="AcrylicBlur" Grid.RowSpan="2"/>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout VerticalOptions="Center">
+                            <Label Text="Poder" FontSize="20" Margin="5,0,0,0" TextColor="white" FontAttributes="Bold"/>
+                            <Label Text="{Binding pokemonRecibe.Poder}" Margin="5,0,0,0" TextColor="white"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Colores" HorizontalOptions="Center" FontSize="20" TextColor="white" FontAttributes="Bold"/>
+                            <StackLayout Orientation="Horizontal">
+                                <BoxView HeightRequest="30" WidthRequest="30" BackgroundColor="{Binding pokemonRecibe.ColorFondo}" CornerRadius="15" VerticalOptions="Center"/>
+                                <BoxView HeightRequest="30" WidthRequest="30" BackgroundColor="{Binding pokemonRecibe.ColorPoder}" CornerRadius="15" VerticalOptions="Center"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="#Pokemon" FontSize="20" Margin="0,0,5,0" TextColor="white" FontAttributes="Bold"/>
+                            <Label Text="{Binding pokemonRecibe.NPokemon}" Margin="0,0,5,0" TextColor="white"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Image Source="pokemon" Grid.Row="1"/>
+                </Grid>
+                <Frame CornerRadius="30" Margin="10" HeightRequest="65" HasShadow="False" Padding="0" >
+                    <Grid ColumnDefinitions="*,*" >
+                        <Button Text="DEveloper" BackgroundColor="GreenYellow" CornerRadius="30" TextColor="Black" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal" >
+                            <Label Text="By Erudito" VerticalOptions="Center" Margin="20,5,0,0" FontSize="30" TextColor="Black"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

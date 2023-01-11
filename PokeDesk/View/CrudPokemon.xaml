@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ALL.View.CrudPokemon">
+    <ContentPage.Content>
+        <Frame  CornerRadius="20" Margin="20">
+            <Grid  RowDefinitions="60, *" >
+                <Label  Text="POKEDEX" VerticalOptions="Center" FontSize="40" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" />
+                <CollectionView  Grid.Row="1" ItemsSource="{Binding Lista_pokemons}" x:Name="pokemon"  >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="100, *">
+
+                                <Frame
+                                    Grid.Row="1"
+                                    WidthRequest="110"
+                                    HeightRequest="80"
+                                    HorizontalOptions="Center"
+                                    CornerRadius="20"
+                                    Margin="-10,-80,-10,0"
+
+                                    BackgroundColor="{Binding ColorFondo}"
+                                    >
+                                    <StackLayout Margin="0,20,0,0">
+                                        <Label Text="{Binding NPokemon}" TextColor="#fff" CharacterSpacing="1" FontSize="12" Margin="0,0,0,-5"/>
+                                        <Label Text="{Binding Nombre}" TextColor="white" CharacterSpacing="1" FontSize="12"/>
+                                        <Button
+                                            Text="{Binding Poder}"
+                                            CornerRadius="30"
+                                            HorizontalOptions="Start"
+                                            BackgroundColor="{Binding ColorPoder}"
+                                            TextTransform="None"
+                                            HeightRequest="30"
+                                            Padding="5"
+
+                                            />
+                                    </StackLayout>
+                                </Frame>
+                                <Image
+                                    Grid.RowSpan="2"
+                                    HeightRequest="80"
+                                    VerticalOptions="StartAndExpand"
+                                    Source="{Binding Icono}"
+
+                                    />
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Path= BindingContext.btnGoDetailPokemonCommand, Source={x:Reference pokemon}}" 
+                                        CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Span="2" Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                </CollectionView>
+                <Button
+                    Text="+"
+                    FontAttributes="Bold"
+                    Grid.Row="1"
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    VerticalOptions="End"
+                    HorizontalOptions="End"
+                    Command="{Binding btnGoADDPokemonCommand}"
+                    BackgroundColor="#1B3A57"
+                    TextColor="White"
+                    CornerRadius="50"
+                    Margin="-15"
+                    />
+            </Grid>
+        </Frame>
+
+    </ContentPage.Content>
+</ContentPage>

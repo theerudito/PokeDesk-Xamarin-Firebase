@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ALL.View.Pokemon.AddPokemon">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#282C34" RowDefinitions="80, *" >
+            <StackLayout Orientation="Horizontal" Margin="10">
+
+                <ImageButton Source="back" Command="{Binding btnBack}"  BackgroundColor="Transparent"/>
+                <Image Source="pokemon" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="pokebola"/>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Margin="20">
+
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Nombre: "
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        TextColor="orange"/>
+                    <Entry
+                        HorizontalOptions="StartAndExpand"
+                        Placeholder="Ingrese El Nombre"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        TextTransform="Lowercase"
+                        PlaceholderColor="White"
+                        Text="{Binding TextNombre}"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Color Fondo: "
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        TextColor="orange"/>
+                    <Entry
+                        HorizontalOptions="StartAndExpand"
+                        Placeholder="Ingrese El Color Fondo"
+
+                        TextColor="{Binding TextColorFondo}"
+                        FontAttributes="Bold"
+                        TextTransform="Lowercase"
+                        PlaceholderColor="white"
+                        Text="{Binding TextColorFondo}"
+                        />
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="#Num : "
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        TextColor="orange"/>
+                    <Entry
+                        HorizontalOptions="StartAndExpand"
+                        Placeholder="Ingrese El # del Pokemon"
+
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        TextTransform="Lowercase"
+                        PlaceholderColor="White"
+                        Text="{Binding TextNumPokemon}"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Icon : "
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        TextColor="orange"/>
+                    <Entry
+                        HorizontalOptions="StartAndExpand"
+                        Placeholder="Ingrese El Icono"
+
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        TextTransform="Lowercase"
+                        PlaceholderColor="White"
+                        Text="{Binding TextIcono}"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Power : "
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        TextColor="orange"/>
+                    <Entry
+                        HorizontalOptions="StartAndExpand"
+                        Placeholder="Ingrese Poder Pokemon"
+
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        TextTransform="Lowercase"
+                        PlaceholderColor="White"
+                        Text="{Binding TextPower}"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Color Poder : "
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        TextColor="orange"/>
+                    <Entry
+                        HorizontalOptions="StartAndExpand"
+                        Placeholder="Ingrese Color Poder del Pokemon"
+                        Text="{Binding TextColorPoder}"
+                        TextColor="{Binding TextColorPoder}"
+                        FontAttributes="Bold"
+                        TextTransform="Lowercase"
+                        PlaceholderColor="White"/>
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center">
+                    <Image
+                        Source="https://i.postimg.cc/WpM1GMKs/eye.png"
+                        HeightRequest="30"
+                        />
+                    <Label
+                        Text="Vista Previa"
+                        FontSize="20"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"/>
+                </StackLayout>
+
+
+                <Grid RowDefinitions="100, *">
+
+                    <Frame
+                        Grid.Row="1"
+                        WidthRequest="250"
+                        HorizontalOptions="Center"
+                        CornerRadius="15"
+                        Margin="0,-40,0,0"
+                        BackgroundColor="{Binding TextColorFondo}"
+                        >
+                        <StackLayout Margin="0,20,0,0">
+                            <Label Text="{Binding TextNumPokemon}" TextColor="#fff" CharacterSpacing="1" FontSize="18" Margin="0,0,0,5"/>
+                            <Label Text="{Binding TextNombre}" TextColor="white" CharacterSpacing="1" FontSize="18"/>
+                            <Button
+                                Text="{Binding TextPower}"
+                                CornerRadius="30"
+                                HorizontalOptions="Start"
+                                BackgroundColor="{Binding TextColorPoder}"
+                                TextTransform="None"
+                                HeightRequest="40"
+
+                                />
+                        </StackLayout>
+                    </Frame>
+                    <Image
+                        Grid.RowSpan="2"
+                        HeightRequest="140"
+                        VerticalOptions="StartAndExpand"
+                        Source="{Binding TextIcono}"
+
+                        />
+                </Grid>
+
+                <!--Source="https://i.postimg.cc/5NKdLyxx/snorlax.png"-->
+
+                <Button
+                    Text="+"
+                    Margin="0,10,0,0"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    BackgroundColor="yellow"
+                    TextColor="black"
+                    CornerRadius="50"
+                    Command="{Binding addNewPokemon}"
+                    />
+            </StackLayout>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
